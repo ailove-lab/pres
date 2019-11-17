@@ -1,0 +1,55 @@
+<!DOCTYPE html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Ailove.Lab | {title}</title><link rel="stylesheet" href="css/reset.css"><link rel="stylesheet" href="css/reveal.css"><link rel="stylesheet" href="css/theme/lab.css"><link rel="stylesheet" href="fonts/RobotoSlab/stylesheet.css"><link rel="stylesheet" href="fonts/Roboto/stylesheet.css"><!-- Theme used for syntax highlighting of code--><link rel="stylesheet" href="lib/css/monokai.css"><!-- Printing and PDF exports--><script>var link = document.createElement( 'link' );
+link.rel = 'stylesheet';
+link.type = 'text/css';
+link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script></head><div class="reveal"><div class="slides"><section><h1>{title}</h1><h4>{subtitle}</h4><a href="#{mai_url}">https://ailove-lab.github.io/pres/template</a></section><section><h2>План</h2><ul><li class="fragment fade-in-then-semi-out">Запуск</li><li class="fragment fade-in-then-semi-out">Настройки</li><li class="fragment fade-in-then-semi-out">Миксины</li><li class="fragment fade-in-then-semi-out">Структура</li></ul></section><section><section><h2>Введение</h2><div><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path stroke="white" d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"></path></svg></div></section><section><p class="fragment fade-in-then-semi-out">Данный темплейт собран на базе проекта <a href="httpso://revealjs.com">reveal.js</a></p><p class="fragment fade-in-then-semi-out">reveal.js - библиотека, пoзволяющая собирать интерактивные презентации</p><p class="fragment fade-in-then-semi-out">В данном темплейте активно используется язык html темплейтов <a href="pugjs.org">pug</a></p></section><section><p class="fragment fade-in-then-semi-out">Использование <b>pug</b> позволяет разбить презентацию на логические блоки-файлы.</p><p class="fragment fade-in-then-semi-out">Значительно упростить верстку презентации.</p></section><section><h3>Пример pug верстки</h3><pre><code data-trim data-noescape>{intro.pug}
+section
+  section
+    h2 Введение
+    +arr
+  section
+    +p Данный темплейт собран на базе проекта <a href="httpso://revealjs.com">reveal.js</a>
+    ...
+    +p Значительно упростить верстку презентации.
+  section
+    h3 Пример pug верстки
+    pre.
+      ...</code></pre></section></section><section><section><h2>Запуск</h2><div><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path stroke="white" d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"></path></svg></div></section><section><p>Сборка презентации осущесвляется парсером разметки <a href="http://pugjs.org">pug</a>  </p><pre><code>> npm install -g pug
+> pug -w index.pug
+</code></pre></section><section><p>Для тестирования подойдет любой веб сервер для статики</p></section></section><section><h2>Настройки</h2><p>Общие переменные могут быть настроены в файле <a href="settings.pug">settings.pug</a></p></section><section><h2>Миксины</h2><p>В файле <a href="mixins.pug">mixins.pug</a> заданные некоторые миксины упрощающие оформление:</p><ul><li class="fragment fade-in-then-semi-out"><b>+li</b> - появляющийся li элемент</li><li class="fragment fade-in-then-semi-out"><b>+p</b> - появляющийся параграф</li><li class="fragment fade-in-then-semi-out"><b>+py</b> - питоноский код </li><li class="fragment fade-in-then-semi-out"><b>+arr</b> - стрелка вниз</li><li class="fragment fade-in-then-semi-out"><b>+note</b> - невидимая заметка</li></ul></section><section><section><h2>Структура</h2><div><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path stroke="white" d="M11 21.883l-6.235-7.527-.765.644 7.521 9 7.479-9-.764-.645-6.236 7.529v-21.884h-1v21.883z"></path></svg></div></section><section><h3>Файловaя структура</h3><pre><code>// Файлы вложены  
+index.pug
+  settings.pug 
+  presentation.pug
+    intro.pug
+    section_01.pug
+    ...
+    section_##.pug
+    epilogue.pug
+</code></pre></section><section><h3>index.pug</h3><p>В этом файле собран базовый шаблон reveal.js    </p></section><section><h3>settings.pug</h3><p>В этом файле собраны повторяющиеся элементы    </p></section><section><h3>presentation.pug</h3><p>В этом файле собраны секции используемые в презентации</p></section><section><h3>Структура простой секции</h3><pre><code>// section_##.pug
+section
+  h2 Заголовок секции
+  p Содержание секции
+  ul
+    li список #1
+    li список #2
+    li список #3
+</code></pre></section><section><h3>Структура сложной секции</h3><pre><code>// section_##.pug
+section
+  section
+    h2 Заголовок секции
+  section
+    h3 Подзаголовок страницы секции
+    p Содержание страницы секции</code></pre></section></section><section><h1>ВОПРОСЫ?</h1></section><section><h2>v.seregin@ailove.ru</h2></section></div></div><script src="js/reveal.js"></script><script>// More info about config & dependencies:
+// - https://github.com/hakimel/reveal.js#configuration
+// - https://github.com/hakimel/reveal.js#dependencies
+Reveal.initialize({
+dependencies: [
+    { src: 'plugin/markdown/marked.js' },
+    { src: 'plugin/markdown/markdown.js' },
+    { src: 'plugin/math/math.js', async: true },
+    { src: 'plugin/notes/notes.js', async: true },
+    { src: 'plugin/highlight/highlight.js', async: true }
+],
+history: true,
+});</script>
