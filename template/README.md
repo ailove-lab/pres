@@ -1,4 +1,4 @@
 # Machine Learning
 
-https://ailove-lab.github.io/ml/
+https://ailove-lab.github.io/pres/template
 
